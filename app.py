@@ -30,9 +30,9 @@ HTML = """
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --red: #c0392b;
-            --red-dark: #922b21;
-            --red-light: #f9ebea;
+            --blue: #2563eb;
+            --blue-dark: #1d4ed8;
+            --blue-light: #dbeafe;
             --green: #1e8449;
             --green-light: #eafaf1;
             --gray: #6c757d;
@@ -41,13 +41,16 @@ HTML = """
             --text: #1a1a2e;
             --text-muted: #6b7280;
             --white: #ffffff;
+            --red: #2563eb;
+            --red-dark: #1d4ed8;
+            --red-light: #dbeafe;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'IBM Plex Sans', sans-serif;
-            background: #f0f2f5;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             color: var(--text);
             min-height: 100vh;
             padding: 30px 20px;
@@ -60,13 +63,14 @@ HTML = """
 
         /* HEADER */
         .header {
-            background: var(--red);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             color: white;
             padding: 22px 30px;
             border-radius: 10px 10px 0 0;
             display: flex;
             align-items: center;
             gap: 14px;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
         }
         .header-icon { font-size: 32px; }
         .header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
@@ -74,10 +78,11 @@ HTML = """
 
         /* CARD */
         .card {
-            background: white;
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-top: none;
             padding: 28px 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
         .card:last-child { border-radius: 0 0 10px 10px; }
 
@@ -270,8 +275,6 @@ HTML = """
         <div class="header-icon">🗳️</div>
         <div>
             <h1>Consulta Miembro de Mesa - ONPE</h1>
-            <p>Ingresa los DNIs para verificar si son miembros de mesa.<br>
-            Acepta: uno por línea, separados por coma, punto y coma o espacio.</p>
         </div>
     </div>
 
@@ -280,7 +283,6 @@ HTML = """
         <textarea id="dniInput" placeholder="75414326&#10;76578509&#10;..."></textarea>
         <div class="input-footer">
             <span class="dni-count">DNIs ingresados: <strong id="dniCounter">0</strong></span>
-            <span>Separar por salto de línea, coma (,), punto y coma (;) o espacio.</span>
         </div>
         <div class="progress-bar-wrap" id="progressWrap">
             <div class="progress-label" id="progressLabel">Consultando...</div>
